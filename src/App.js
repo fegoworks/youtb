@@ -24,11 +24,10 @@ class App extends React.Component {
       videos: response.data.items,
       selectedVideo: response.data.items[0],
     });
-
-    console.log(response.data.items);
   };
 
   render() {
+    const { selectedVideo } = this.state;
     return (
       <Grid justify="center" container spacing={10}>
         <Grid item xs={12}>
@@ -37,7 +36,7 @@ class App extends React.Component {
               <SearchBar onFormSubmit={this.handleSubmit} />
             </Grid>
             <Grid item xs={12}>
-              {/* VIDEO DETAILS */}
+              <VideoDetail video={selectedVideo} />
             </Grid>
             <Grid item xs={12}>
               {/* VIDEO LIST */}
